@@ -6,6 +6,7 @@ import 'package:hungry/core/constants/app_colors.dart';
 import 'package:hungry/core/shared/custom_gap.dart';
 import 'package:hungry/core/shared/custom_text.dart';
 import 'package:hungry/core/shared/custom_text_form_field.dart';
+import 'package:hungry/features/auth/views/signup_view.dart';
 
 class LoginView extends HookWidget {
   LoginView({super.key});
@@ -72,33 +73,25 @@ class LoginView extends HookWidget {
                     child: Material(
                       elevation: 2,
                       borderRadius: .circular(16),
-                        color: Colors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
 
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Login",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineSmall
-                                  ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: Theme.of(context).textTheme.headlineSmall
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
 
                             const SizedBox(height: 8),
 
                             Text(
                               "Sign in to continue",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(
-                                color: Colors.grey,
-                              ),
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(color: Colors.grey),
                             ),
 
                             const SizedBox(height: 30),
@@ -106,16 +99,13 @@ class LoginView extends HookWidget {
                             CustomTextFormField(
                               controller: emailController,
                               hintText: "Email Address",
-
                             ),
 
-                            const SizedBox(height: 16),
-
+CustomGap(16),
                             CustomTextFormField(
                               controller: passwordController,
                               hintText: "Password",
                               isPassword: true,
-
                             ),
 
                             const SizedBox(height: 10),
@@ -145,8 +135,7 @@ class LoginView extends HookWidget {
                                   foregroundColor: Colors.white,
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(14),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                                 onPressed: () {},
@@ -164,12 +153,9 @@ class LoginView extends HookWidget {
 
                             Row(
                               children: [
-                                const Expanded(
-                                  child: Divider(),
-                                ),
+                                const Expanded(child: Divider()),
                                 Padding(
-                                  padding:
-                                  const EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                     horizontal: 12,
                                   ),
                                   child: Text(
@@ -179,9 +165,7 @@ class LoginView extends HookWidget {
                                     ),
                                   ),
                                 ),
-                                const Expanded(
-                                  child: Divider(),
-                                ),
+                                const Expanded(child: Divider()),
                               ],
                             ),
 
@@ -192,22 +176,25 @@ class LoginView extends HookWidget {
                                 backgroundColor: Colors.red.shade700,
                                 foregroundColor: Colors.white,
 
-                                minimumSize:
-                                const Size(double.infinity, 50),
+                                minimumSize: const Size(double.infinity, 50),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                  BorderRadius.circular(14),
+                                  borderRadius: BorderRadius.circular(14),
                                 ),
                               ),
                               onPressed: () {},
-                              icon: const Icon(Icons.g_mobiledata,color: Colors.white,size: 30,),
-                              label:  Text(
-                                "Continue with Google",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: Colors.white,fontWeight: .bold
-                                ),
+                              icon: const Icon(
+                                Icons.g_mobiledata,
+                                color: Colors.white,
+                                size: 30,
                               ),
-
+                              label: Text(
+                                "Continue with Google",
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: .bold,
+                                    ),
+                              ),
                             ),
 
                             const SizedBox(height: 24),
@@ -217,22 +204,25 @@ class LoginView extends HookWidget {
                                 text: TextSpan(
                                   children: [
                                     const TextSpan(
-                                      text:
-                                      "Don't have an account? ",
+                                      text: "Don't have an account? ",
                                       style: TextStyle(
                                         color: Colors.black87,
                                         fontSize: 14,
                                       ),
                                     ),
                                     TextSpan(
-                                      recognizer:
-                                      TapGestureRecognizer()
-                                        ..onTap = () {},
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (c) => SignUpView(),
+                                          ),
+                                        ),
+
                                       text: "Sign Up",
                                       style: TextStyle(
                                         color: AppColors.primary,
-                                        fontWeight:
-                                        FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                         fontSize: 14,
                                       ),
                                     ),
